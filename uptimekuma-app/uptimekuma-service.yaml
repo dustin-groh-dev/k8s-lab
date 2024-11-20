@@ -9,7 +9,7 @@ metadata:
   namespace: uptimekuma
 spec:
   selector:
-    app: speedtest
+    app: uptimekuma
   ports:
     - name: uptimekumaport
       port: 3001
