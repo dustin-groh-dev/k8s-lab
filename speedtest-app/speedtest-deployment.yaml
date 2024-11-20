@@ -29,7 +29,6 @@ spec:
       creationTimestamp: null
       labels:
         app: speedtest
-        workload.user.cattle.io/workloadselector: apps.deployment-default-speedtest
       namespace: default
     spec:
       containers:
