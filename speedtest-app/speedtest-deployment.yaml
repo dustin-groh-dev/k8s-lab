@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  managedFields:
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      manager: agent
+      operation: Update
+    - apiVersion: apps/v1
+      fieldsType: FieldsV1
+      manager: kube-controller-manager
+      operation: Update
+      subresource: status
+  name: speedtest
+  namespace: speedtest
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+      creationTimestamp: null
+      labels:
+        app: speedtest
+        workload.user.cattle.io/workloadselector: apps.deployment-default-speedtest
+      namespace: default
+    spec:
+      containers:
+        - env:
+            - name: OOKLA_EULA_GDPR
+              value: 'true'
+          image: henrywhitaker3/speedtest-tracker
+          imagePullPolicy: Always
+          name: speedtest
+          resources: {}
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+status:
+  availableReplicas: 1
+  observedGeneration: 5
+  readyReplicas: 1
+  replicas: 1
+  updatedReplicas: 1
