@@ -1,1 +1,33 @@
-hold
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: uptimekuma
+  annotations:
+    {}
+  labels:
+    workload.user.cattle.io/workloadselector: apps.deployment-default-uptimekuma
+  namespace: uptimekuma
+spec:
+  selector:
+    matchLabels:
+      workload.user.cattle.io/workloadselector: apps.deployment-default-uptimekuma
+  template:
+    metadata:
+      labels:
+        app: uptimekuma
+        workload.user.cattle.io/workloadselector: apps.deployment-default-uptimekuma
+      namespace: uptimekuma
+    spec:
+      containers:
+        - imagePullPolicy: Always
+          name: uptimekuma
+          securityContext:
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+            privileged: false
+            allowPrivilegeEscalation: false
+          _init: false
+          __active: true
+          image: louislam/uptime-kuma:1
+  replicas: 1
+__clone: true
