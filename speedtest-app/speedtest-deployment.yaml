@@ -6,7 +6,7 @@ metadata:
     {}
   labels:
     workload.user.cattle.io/workloadselector: apps.deployment-default-speedtest
-  namespace: default
+  namespace: speedtest
 spec:
   selector:
     matchLabels:
@@ -16,7 +16,7 @@ spec:
       labels:
         app: speedtest
         workload.user.cattle.io/workloadselector: apps.deployment-default-speedtest
-      namespace: default
+      namespace: speedtest
     spec:
       containers:
         - imagePullPolicy: Always
