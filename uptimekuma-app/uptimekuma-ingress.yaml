@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: uptimekuma-ingress
+  annotations:
+    {}
+  labels:
+    {}
+  namespace: uptimekuma
+spec:
+  rules:
+    - vKey: 1564384366
+      host: uptime.homelab.us
+      http:
+        paths:
+          - id: 3314837007
+            backend:
+              service:
+                port:
+                  number: 3001
+                name: uptimekuma-service
+            path: /
+            pathType: Prefix
+  tls:
+  backend:
+    {}
+__clone: true
+cacheObject:
+  useNestedBackendField: true
+  showPathType: true
