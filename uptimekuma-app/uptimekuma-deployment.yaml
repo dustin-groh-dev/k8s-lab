@@ -29,5 +29,5 @@ spec:
           _init: false
           __active: true
           image: louislam/uptime-kuma:1
-  replicas: 1
+  replicas: 2
 __clone: true
