@@ -8,6 +8,7 @@ metadata:
     {}
   namespace: uptimekuma
 spec:
+  ingressClassName: nginx2
   rules:
     - vKey: 1564384366
       host: uptime.homelab.us
