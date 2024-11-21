@@ -16,5 +16,5 @@ spec:
       protocol: TCP
       targetPort: 3001
   sessionAffinity: None
-  type: NodePort
+  type: ClusterIP
 __clone: true
