@@ -8,7 +8,6 @@ metadata:
 spec:
   template:
     metadata:
-      labels:
       namespace: swissarmyknife
       containers:
         - imagePullPolicy: Always
