@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: swissarmyknife
+  namespace: swissarmyknife
+  labels:
+    app: swissarmyknife
+spec:
+  template:
+    metadata:
+      labels:
+        workload.user.cattle.io/workloadselector: apps.daemonset-swissarmyknife-undefined
+      namespace: swissarmyknife
+      containers:
+        - imagePullPolicy: Always
+          name: swissarmyknife
+          securityContext:
+            runAsNonRoot: false
+            readOnlyRootFilesystem: false
+            privileged: false
+            allowPrivilegeEscalation: false
+          _init: false
+          __active: true
+          image: leodotcloud/swiss-army-knife:latest
+  replicas: 1
+__clone: true
