@@ -6,6 +6,9 @@ metadata:
   labels:
     app: swissarmyknife
 spec:
+  selector:
+    matchLabels:
+      app: swissarmyknife
   template:
     metadata:
       labels:
