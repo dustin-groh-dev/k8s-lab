@@ -9,7 +9,6 @@ spec:
   template:
     metadata:
       labels:
-        workload.user.cattle.io/workloadselector: apps.daemonset-swissarmyknife-undefined
       namespace: swissarmyknife
       containers:
         - imagePullPolicy: Always
