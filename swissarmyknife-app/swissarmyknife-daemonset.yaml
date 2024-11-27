@@ -9,7 +9,7 @@ spec:
   template:
     metadata:
       labels:
-        name: swissarmyknife
+        app: swissarmyknife
       namespace: swissarmyknife
       containers:
         - imagePullPolicy: Always
